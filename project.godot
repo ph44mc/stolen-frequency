@@ -1,0 +1,96 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="stolen_frequency"
+run/main_scene="uid://b6l8qtrc805o3"
+config/features=PackedStringArray("4.6", "Forward Plus")
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="uid://dicjrxswwssjm"
+config/icon="res://Assets/UI/icon.svg"
+boot_splash/minimum_display_time=100
+
+[audio]
+
+buses/default_bus_layout="uid://cp65wgk65ykj0"
+
+[autoload]
+
+Config="*uid://br1sr85gk6lc3"
+G="*uid://ddxbgh58wdmd7"
+UIManager="*uid://bjvll7ppo2js"
+Sounds="*uid://dpa4dp2iku86"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=1
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep_height"
+mouse_cursor/custom_image="uid://c5b71dmstsykv"
+mouse_cursor/custom_image_hotspot=Vector2(20, 10)
+
+[file_customization]
+
+folder_colors={
+"res://Assets/": "yellow",
+"res://Scenes/": "purple"
+}
+
+[input]
+
+run_up={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":87,"key_label":0,"unicode":119,"location":0,"echo":false,"script":null)
+]
+}
+run_down={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":83,"key_label":0,"unicode":115,"location":0,"echo":false,"script":null)
+]
+}
+run_left={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":65,"key_label":0,"unicode":97,"location":0,"echo":false,"script":null)
+]
+}
+run_right={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":68,"key_label":0,"unicode":100,"location":0,"echo":false,"script":null)
+]
+}
+rotate_right={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":101,"location":0,"echo":false,"script":null)
+]
+}
+rotate_left={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":81,"key_label":0,"unicode":113,"location":0,"echo":false,"script":null)
+]
+}
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://Assets/Lang/WAVESHAFT_lang - Sheet1 (4).en.translation", "res://Assets/Lang/WAVESHAFT_lang - Sheet1 (4).ru.translation")
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+rendering_device/driver.windows="d3d12"
+textures/decals/filter=0
+textures/light_projectors/filter=0
+environment/defaults/default_clear_color=Color(0.026025807, 0.03825708, 0.048065104, 1)

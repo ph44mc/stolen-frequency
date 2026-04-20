@@ -1,0 +1,225 @@
+[gd_scene format=3 uid="uid://c3f22xsng0bm4"]
+
+[ext_resource type="Script" uid="uid://bfsfbawl2riv8" path="res://Scripts/transition.gd" id="1_jnsx0"]
+[ext_resource type="Texture2D" uid="uid://dbyu665pwn4s0" path="res://Assets/UI/transition.png" id="2_ah04o"]
+
+[sub_resource type="Animation" id="Animation_jnsx0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/HBoxContainer/TextureRect:custom_minimum_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(200, 200)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VBoxContainer/HBoxContainer/TextureRect/ColorRect:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ah04o"]
+resource_name = "in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/HBoxContainer/TextureRect:custom_minimum_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.46666667),
+"transitions": PackedFloat32Array(0.12940823, -3.605002),
+"update": 0,
+"values": [Vector2(4000, 4000), Vector2(10, 10)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VBoxContainer/HBoxContainer/TextureRect/ColorRect:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.23453465, 0.43333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_vlteq"]
+resource_name = "in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/HBoxContainer/TextureRect:custom_minimum_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 0.43333334),
+"transitions": PackedFloat32Array(-2, 0.36602163),
+"update": 0,
+"values": [Vector2(20, 20), Vector2(3000, 3000)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.46666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VBoxContainer/HBoxContainer/TextureRect/ColorRect:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vlteq"]
+_data = {
+&"RESET": SubResource("Animation_jnsx0"),
+&"in": SubResource("Animation_ah04o"),
+&"out": SubResource("Animation_vlteq")
+}
+
+[node name="Transition" type="Control" unique_id=821373237]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_jnsx0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=295983467]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1052.4443
+offset_top = -592.0
+offset_right = 1052.4443
+offset_bottom = 592.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+mouse_filter = 2
+theme_override_constants/separation = -2
+metadata/_edit_lock_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer" unique_id=87728820]
+process_mode = 3
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1691606775]
+process_mode = 3
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = -2
+metadata/_edit_lock_ = true
+
+[node name="ColorRect3" type="ColorRect" parent="VBoxContainer/HBoxContainer" unique_id=1870035664]
+process_mode = 3
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer" unique_id=2072448807]
+process_mode = 3
+z_index = 11
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+texture = ExtResource("2_ah04o")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer/TextureRect" unique_id=1055190210]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/HBoxContainer" unique_id=913929689]
+process_mode = 3
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer" unique_id=1060624069]
+process_mode = 3
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=475256685]
+libraries/ = SubResource("AnimationLibrary_vlteq")

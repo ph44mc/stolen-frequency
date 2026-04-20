@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://durhqwen77yum"]
+
+[ext_resource type="PackedScene" uid="uid://bf371sgll1q0n" path="res://Scenes/Tiles/tile.tscn" id="1_1kngx"]
+[ext_resource type="Script" uid="uid://bu2enatdcgj65" path="res://Scripts/Tiles/tile_hell_2.gd" id="2_howxy"]
+[ext_resource type="Shader" uid="uid://bkx53xci4fwyy" path="res://Assets/UI/hurt.gdshader" id="3_is65c"]
+[ext_resource type="Texture2D" uid="uid://q4fci0vgwlg2" path="res://Assets/Tiles/tile_hell_2.png" id="4_howxy"]
+[ext_resource type="Texture2D" uid="uid://b6qpqqm17lx4q" path="res://Assets/Tiles/lavalava.png" id="5_is65c"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_howxy"]
+resource_local_to_scene = true
+shader = ExtResource("3_is65c")
+shader_parameter/flash_amount = 0.0
+shader_parameter/flash_color = Color(1, 0.68333334, 0, 1)
+
+[sub_resource type="Animation" id="Animation_howxy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TileImage/Lavalava:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TileImage/Lavalava:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_is65c"]
+resource_name = "lava"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TileImage/Lavalava:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TileImage/Lavalava:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.13333334, 0.2, 0.26666668, 0.36666667, 0.46666667, 0.56666666, 0.6595316, 0.7519559, 0.8333333, 0.9186226),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 2, 3, 2, 3, 1, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wvoed"]
+_data = {
+&"RESET": SubResource("Animation_howxy"),
+&"lava": SubResource("Animation_is65c")
+}
+
+[node name="Tile" unique_id=1717375347 instance=ExtResource("1_1kngx")]
+script = ExtResource("2_howxy")
+
+[node name="Sprite2D" parent="TileImage" parent_id_path=PackedInt32Array(1914940449) index="0" unique_id=175761121]
+material = SubResource("ShaderMaterial_howxy")
+texture = ExtResource("4_howxy")
+
+[node name="Lavalava" type="Sprite2D" parent="TileImage" parent_id_path=PackedInt32Array(1914940449) index="2" unique_id=1264901071]
+visible = false
+z_index = 11
+position = Vector2(1.1920929e-07, -54)
+scale = Vector2(1.72, 1.72)
+texture = ExtResource("5_is65c")
+hframes = 4
+
+[node name="Timer" type="Timer" parent="." index="2" unique_id=1953972543]
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3" unique_id=80479025]
+libraries/ = SubResource("AnimationLibrary_wvoed")

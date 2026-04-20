@@ -1,0 +1,255 @@
+[gd_scene format=3 uid="uid://ktm5ly8xxlq6"]
+
+[ext_resource type="Script" uid="uid://by8msgwf1va3s" path="res://Scripts/game_over.gd" id="1_14u15"]
+[ext_resource type="Shader" uid="uid://bxvv7dkm6ar6m" path="res://Assets/UI/button.gdshader" id="1_eoghk"]
+[ext_resource type="Texture2D" uid="uid://jic1r5nel66i" path="res://Assets/UI/button1.png" id="2_14u15"]
+[ext_resource type="Material" uid="uid://b7klavdfj1cim" path="res://Assets/UI/grad.tres" id="2_j3ryr"]
+[ext_resource type="Texture2D" uid="uid://b8nasfygfa8v0" path="res://Assets/UI/button2.png" id="3_j3ryr"]
+[ext_resource type="PackedScene" uid="uid://crrbgvecr4148" path="res://Scenes/menu_button.tscn" id="4_rjluv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gjtdd"]
+resource_local_to_scene = true
+shader = ExtResource("1_eoghk")
+shader_parameter/speed = 0.8
+shader_parameter/pattern_scale = 20.0
+shader_parameter/iridescence_strength = 0.6
+shader_parameter/fade_amount = 1.0
+shader_parameter/pattern_mode = 0
+shader_parameter/saturation = 0.6
+
+[sub_resource type="Animation" id="Animation_14u15"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Highscore:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(834, 876)]
+}
+
+[sub_resource type="Animation" id="Animation_j3ryr"]
+resource_name = "start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Highscore:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(834, 798), Vector2(834, 876)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rjluv"]
+_data = {
+&"RESET": SubResource("Animation_14u15"),
+&"start": SubResource("Animation_j3ryr")
+}
+
+[node name="GameOver" type="Control" unique_id=967215900]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_14u15")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1809160495]
+material = ExtResource("2_j3ryr")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0712, 0.0734, 0.08, 1)
+
+[node name="Highscore" type="NinePatchRect" parent="." unique_id=166895370]
+material = SubResource("ShaderMaterial_gjtdd")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -417.0
+offset_top = -438.0
+offset_right = 417.0
+offset_bottom = 438.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_14u15")
+patch_margin_left = 30
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 30
+
+[node name="TextureRect2" type="NinePatchRect" parent="Highscore" unique_id=2043834667]
+self_modulate = Color(0.74, 0.74, 0.74, 1)
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_j3ryr")
+patch_margin_left = 30
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 30
+
+[node name="MarginContainer" type="MarginContainer" parent="Highscore" unique_id=1742755855]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Highscore/MarginContainer" unique_id=649518315]
+layout_mode = 2
+
+[node name="Highscore" type="NinePatchRect" parent="Highscore/MarginContainer/VBoxContainer" unique_id=984906070]
+material = SubResource("ShaderMaterial_gjtdd")
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("2_14u15")
+patch_margin_left = 30
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 30
+
+[node name="TextureRect2" type="NinePatchRect" parent="Highscore/MarginContainer/VBoxContainer/Highscore" unique_id=1437860334]
+self_modulate = Color(0.74, 0.74, 0.74, 1)
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_j3ryr")
+patch_margin_left = 30
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 30
+
+[node name="Label" type="Label" parent="Highscore/MarginContainer/VBoxContainer/Highscore" unique_id=2104386142]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -107.5
+offset_top = -33.5
+offset_right = 107.5
+offset_bottom = 33.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 1
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.105882354)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 16
+theme_override_constants/shadow_outline_size = 40
+theme_override_font_sizes/font_size = 52
+text = "Game Over:("
+horizontal_alignment = 1
+
+[node name="_" type="Control" parent="Highscore/MarginContainer/VBoxContainer" unique_id=766285725]
+process_mode = 3
+custom_minimum_size = Vector2(0, 30.48)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Highscore2" type="NinePatchRect" parent="Highscore/MarginContainer/VBoxContainer" unique_id=173413657]
+material = SubResource("ShaderMaterial_gjtdd")
+custom_minimum_size = Vector2(0, 512.27)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("2_14u15")
+patch_margin_left = 30
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 30
+
+[node name="TextureRect2" type="NinePatchRect" parent="Highscore/MarginContainer/VBoxContainer/Highscore2" unique_id=465487026]
+self_modulate = Color(0.74, 0.74, 0.74, 1)
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_j3ryr")
+patch_margin_left = 30
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 30
+
+[node name="MarginContainer" type="MarginContainer" parent="Highscore/MarginContainer/VBoxContainer/Highscore2" unique_id=1570194956]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="Label" type="RichTextLabel" parent="Highscore/MarginContainer/VBoxContainer/Highscore2/MarginContainer" unique_id=1773201858]
+layout_mode = 2
+mouse_filter = 1
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.105882354)
+theme_override_constants/shadow_outline_size = 40
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/normal_font_size = 46
+
+[node name="_2" type="Control" parent="Highscore/MarginContainer/VBoxContainer" unique_id=1344504420]
+process_mode = 3
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Buttons" type="HBoxContainer" parent="Highscore/MarginContainer/VBoxContainer" unique_id=1152379167]
+layout_mode = 2
+
+[node name="Restart" parent="Highscore/MarginContainer/VBoxContainer/Buttons" unique_id=1832128501 instance=ExtResource("4_rjluv")]
+custom_minimum_size = Vector2(300, 115.075)
+layout_mode = 2
+size_flags_horizontal = 3
+button_text = "Restart"
+
+[node name="Menu" parent="Highscore/MarginContainer/VBoxContainer/Buttons" unique_id=366723887 instance=ExtResource("4_rjluv")]
+custom_minimum_size = Vector2(300, 115.075)
+layout_mode = 2
+size_flags_horizontal = 3
+button_text = "Menu"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1955079239]
+libraries/ = SubResource("AnimationLibrary_rjluv")
+
+[connection signal="pressed" from="Highscore/MarginContainer/VBoxContainer/Buttons/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Highscore/MarginContainer/VBoxContainer/Buttons/Menu" to="." method="_on_menu_pressed"]

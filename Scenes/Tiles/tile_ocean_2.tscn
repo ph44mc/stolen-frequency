@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://b54pmsn00iymh"]
+
+[ext_resource type="PackedScene" uid="uid://bf371sgll1q0n" path="res://Scenes/Tiles/tile.tscn" id="1_q7ngt"]
+[ext_resource type="Script" uid="uid://dxdlsbfwt13u" path="res://Scripts/Tiles/tile_ocean_2.gd" id="2_ljx4o"]
+[ext_resource type="Shader" uid="uid://bkx53xci4fwyy" path="res://Assets/UI/hurt.gdshader" id="3_20v4v"]
+[ext_resource type="Texture2D" uid="uid://bp6t55s53cy07" path="res://Assets/Tiles/tile_ocean_2.png" id="4_ljx4o"]
+[ext_resource type="Texture2D" uid="uid://bfy5wa0lk0523" path="res://Assets/Tiles/waterchubik.png" id="5_ljx4o"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ljx4o"]
+resource_local_to_scene = true
+shader = ExtResource("3_20v4v")
+shader_parameter/flash_amount = 0.0
+shader_parameter/flash_color = Color(1, 0.68333334, 0, 1)
+
+[sub_resource type="Animation" id="Animation_howxy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TileImage/Chubik:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TileImage/Chubik:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_is65c"]
+resource_name = "lava"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TileImage/Chubik:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TileImage/Chubik:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.13333334, 0.2, 0.27769974, 0.35685953, 0.43333334, 0.50881547, 0.59141874, 0.6730303, 0.7607714, 0.83870524),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wvoed"]
+_data = {
+&"RESET": SubResource("Animation_howxy"),
+&"lava": SubResource("Animation_is65c")
+}
+
+[node name="Tile" unique_id=1717375347 instance=ExtResource("1_q7ngt")]
+script = ExtResource("2_ljx4o")
+
+[node name="Sprite2D" parent="TileImage" parent_id_path=PackedInt32Array(1914940449) index="0" unique_id=175761121]
+material = SubResource("ShaderMaterial_ljx4o")
+texture = ExtResource("4_ljx4o")
+
+[node name="Chubik" type="Sprite2D" parent="TileImage" parent_id_path=PackedInt32Array(1914940449) index="2" unique_id=1264901071]
+visible = false
+position = Vector2(1.0000005, -46)
+scale = Vector2(1.32, 1.32)
+texture = ExtResource("5_ljx4o")
+hframes = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2" unique_id=80479025]
+libraries/ = SubResource("AnimationLibrary_wvoed")

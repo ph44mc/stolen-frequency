@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://djc6fw85onpag"]
+
+[ext_resource type="Script" uid="uid://6jpfefqnsryu" path="res://Scripts/tile_placer.gd" id="1_xsjyq"]
+[ext_resource type="Texture2D" uid="uid://xlm7dhqyptfn" path="res://Assets/UI/borders.png" id="2_qmiy5"]
+
+[node name="TilePlacer" type="Node2D" unique_id=1772660490]
+script = ExtResource("1_xsjyq")
+placement_max = Vector2i(15, 23)
+preview_texture = ExtResource("2_qmiy5")
+preview_margin = Vector2i(22, 22)

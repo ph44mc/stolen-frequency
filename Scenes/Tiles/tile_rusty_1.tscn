@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://br7jx5qyuftwl"]
+
+[ext_resource type="PackedScene" uid="uid://bf371sgll1q0n" path="res://Scenes/Tiles/tile.tscn" id="1_reky7"]
+[ext_resource type="Script" uid="uid://ms61o1ex26e7" path="res://Scripts/Tiles/tile_rusty_1.gd" id="2_reky7"]
+[ext_resource type="Shader" uid="uid://bkx53xci4fwyy" path="res://Assets/UI/hurt.gdshader" id="3_s0jyp"]
+[ext_resource type="Texture2D" uid="uid://cgqe2yyjtd3ns" path="res://Assets/Tiles/tile_rusty_1.png" id="4_reky7"]
+[ext_resource type="Texture2D" uid="uid://cgfm5ulwvergg" path="res://Assets/Tiles/spikes.png" id="5_vur7n"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_reky7"]
+resource_local_to_scene = true
+shader = ExtResource("3_s0jyp")
+shader_parameter/flash_amount = 0.0
+shader_parameter/flash_color = Color(1, 0.68333334, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vur7n"]
+size = Vector2(52, 34)
+
+[node name="Tile" unique_id=1717375347 instance=ExtResource("1_reky7")]
+script = ExtResource("2_reky7")
+
+[node name="Sprite2D" parent="TileImage" parent_id_path=PackedInt32Array(1914940449) index="0" unique_id=175761121]
+material = SubResource("ShaderMaterial_reky7")
+texture = ExtResource("4_reky7")
+
+[node name="Spikes" type="Sprite2D" parent="TileImage" parent_id_path=PackedInt32Array(1914940449) index="2" unique_id=1264901071]
+visible = false
+position = Vector2(0, -28)
+texture = ExtResource("5_vur7n")
+
+[node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(1209727674) index="0" unique_id=1946591665]
+shape = SubResource("RectangleShape2D_vur7n")

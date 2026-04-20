@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://df0e80e132khf"]
+
+[ext_resource type="Script" uid="uid://qp0qalygk2q" path="res://Scripts/switch_button.gd" id="1_3yxer"]
+[ext_resource type="Texture2D" uid="uid://bgjggjs4uvvmx" path="res://Assets/UI/checkbox.png" id="1_nqlip"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqlip"]
+resource_local_to_scene = true
+atlas = ExtResource("1_nqlip")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bu1oc"]
+resource_local_to_scene = true
+atlas = ExtResource("1_nqlip")
+region = Rect2(0, 50, 50, 50)
+
+[node name="OnOff" type="TextureButton" unique_id=1015646297]
+texture_normal = SubResource("AtlasTexture_nqlip")
+texture_hover = SubResource("AtlasTexture_bu1oc")
+script = ExtResource("1_3yxer")

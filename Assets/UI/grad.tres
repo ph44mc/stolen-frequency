@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://b7klavdfj1cim"]
+
+[ext_resource type="Shader" uid="uid://bxvv7dkm6ar6m" path="res://Assets/UI/button.gdshader" id="1_y3kow"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_y3kow")
+shader_parameter/speed = 0.3330000158175
+shader_parameter/pattern_scale = 1.0
+shader_parameter/iridescence_strength = 0.6
+shader_parameter/fade_amount = 1.0
+shader_parameter/pattern_mode = 5
+shader_parameter/saturation = 0.6

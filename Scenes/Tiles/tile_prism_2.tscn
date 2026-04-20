@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://cg3ny4k0yxv53"]
+
+[ext_resource type="PackedScene" uid="uid://bf371sgll1q0n" path="res://Scenes/Tiles/tile.tscn" id="1_ohgxp"]
+[ext_resource type="Script" uid="uid://du0hfxhfrwuuj" path="res://Scripts/Tiles/tile_prism_2.gd" id="2_fuv0w"]
+[ext_resource type="Shader" uid="uid://bkx53xci4fwyy" path="res://Assets/UI/hurt.gdshader" id="3_fuv0w"]
+[ext_resource type="Texture2D" uid="uid://2qabt4joysk1" path="res://Assets/Tiles/tile_prism_2.png" id="4_882x6"]
+[ext_resource type="Texture2D" uid="uid://dqpg03olajp3x" path="res://Assets/Tiles/crystall_poewr.png" id="5_882x6"]
+[ext_resource type="Texture2D" uid="uid://dfoemc7shgehg" path="res://Assets/UI/area.png" id="6_fuv0w"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_27sod"]
+resource_local_to_scene = true
+shader = ExtResource("3_fuv0w")
+shader_parameter/flash_amount = 0.0
+shader_parameter/flash_color = Color(1, 0.68333334, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7slo3"]
+resource_local_to_scene = true
+shader = ExtResource("3_fuv0w")
+shader_parameter/flash_amount = 0.0
+shader_parameter/flash_color = Color(1, 0.68333334, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bbh42"]
+size = Vector2(50, 36)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_27sod"]
+radius = 128.0
+
+[node name="Tile" unique_id=1717375347 instance=ExtResource("1_ohgxp")]
+script = ExtResource("2_fuv0w")
+
+[node name="Sprite2D" parent="TileImage" parent_id_path=PackedInt32Array(1914940449) index="0" unique_id=175761121]
+material = SubResource("ShaderMaterial_27sod")
+texture = ExtResource("4_882x6")
+
+[node name="Peashooter" type="Sprite2D" parent="TileImage" parent_id_path=PackedInt32Array(1914940449) index="2" unique_id=1687969206]
+z_index = 11
+material = SubResource("ShaderMaterial_7slo3")
+position = Vector2(-81, -85)
+texture = ExtResource("5_882x6")
+offset = Vector2(80, 54)
+
+[node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(1209727674) index="0" unique_id=1946591665]
+shape = SubResource("RectangleShape2D_bbh42")
+
+[node name="Area2D" type="Area2D" parent="." index="2" unique_id=1464949369]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0" unique_id=2039766407]
+scale = Vector2(1, 0.75)
+shape = SubResource("CircleShape2D_27sod")
+
+[node name="Area" type="Sprite2D" parent="." index="3" unique_id=885895149]
+visible = false
+scale = Vector2(2, 1.5)
+texture = ExtResource("6_fuv0w")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

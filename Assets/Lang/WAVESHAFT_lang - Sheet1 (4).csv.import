@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dwaqo5i3blmsh"
+
+[deps]
+
+files=["res://Assets/Lang/WAVESHAFT_lang - Sheet1 (4).en.translation", "res://Assets/Lang/WAVESHAFT_lang - Sheet1 (4).ru.translation"]
+
+source_file="res://Assets/Lang/WAVESHAFT_lang - Sheet1 (4).csv"
+dest_files=["res://Assets/Lang/WAVESHAFT_lang - Sheet1 (4).en.translation", "res://Assets/Lang/WAVESHAFT_lang - Sheet1 (4).ru.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

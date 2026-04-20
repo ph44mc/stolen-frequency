@@ -1,0 +1,138 @@
+[gd_scene format=3 uid="uid://bf371sgll1q0n"]
+
+[ext_resource type="Script" uid="uid://bw0r8dg84cslb" path="res://Scripts/Tiles/tile.gd" id="1_rvq8p"]
+[ext_resource type="Texture2D" uid="uid://bgjvkwdoxu2w7" path="res://Assets/Tiles/tile_grass_1.png" id="2_4kj4d"]
+[ext_resource type="Shader" uid="uid://bkx53xci4fwyy" path="res://Assets/UI/hurt.gdshader" id="2_lnwvi"]
+[ext_resource type="Texture2D" uid="uid://xlm7dhqyptfn" path="res://Assets/UI/borders.png" id="4_lnwvi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5xkdy"]
+resource_local_to_scene = true
+shader = ExtResource("2_lnwvi")
+shader_parameter/flash_amount = 0.0
+shader_parameter/flash_color = Color(1, 0.68333334, 0, 1)
+
+[sub_resource type="Animation" id="Animation_lnwvi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TileImage/Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TileImage/Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TileImage/Sprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5xkdy"]
+resource_name = "tile_spawn"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TileImage/Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333333),
+"transitions": PackedFloat32Array(0.5, 0.5),
+"update": 0,
+"values": [-1.3456488532876285, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TileImage/Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.3, 0.3930591),
+"transitions": PackedFloat32Array(1, 0.5, 0.5, 1.8025012),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0.515, 0.715), Vector2(1.05, 1.05), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TileImage/Sprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.39153856),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(0, -17.015), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s1ck3"]
+_data = {
+&"RESET": SubResource("Animation_lnwvi"),
+&"tile_spawn": SubResource("Animation_5xkdy")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_khers"]
+size = Vector2(64, 48)
+
+[node name="Tile" type="Node2D" unique_id=1717375347]
+script = ExtResource("1_rvq8p")
+
+[node name="TileImage" type="CanvasGroup" parent="." unique_id=1914940449]
+
+[node name="Sprite2D" type="Sprite2D" parent="TileImage" unique_id=175761121]
+material = SubResource("ShaderMaterial_5xkdy")
+texture = ExtResource("2_4kj4d")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TileImage/Sprite2D" unique_id=1298240220]
+root_node = NodePath("../../..")
+libraries/ = SubResource("AnimationLibrary_s1ck3")
+
+[node name="Outline" type="NinePatchRect" parent="TileImage" unique_id=786728671]
+visible = false
+z_index = 10
+offset_left = -38.888885
+offset_top = -30.0
+offset_right = 38.888885
+offset_bottom = 30.0
+texture = ExtResource("4_lnwvi")
+patch_margin_left = 22
+patch_margin_top = 22
+patch_margin_right = 22
+patch_margin_bottom = 22
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1209727674]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1946591665]
+shape = SubResource("RectangleShape2D_khers")
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_exited" from="Hitbox" to="." method="_on_hitbox_body_exited"]
+[connection signal="mouse_entered" from="Hitbox" to="." method="_on_hitbox_mouse_entered"]
+[connection signal="mouse_exited" from="Hitbox" to="." method="_on_hitbox_mouse_exited"]

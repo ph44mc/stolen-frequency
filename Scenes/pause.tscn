@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://deen7785qfjtf"]
+
+[ext_resource type="Script" uid="uid://dnwm01m2fokbk" path="res://Scripts/pause.gd" id="1_l2mpd"]
+[ext_resource type="Shader" uid="uid://bxvv7dkm6ar6m" path="res://Assets/UI/button.gdshader" id="2_3fojq"]
+[ext_resource type="PackedScene" uid="uid://crrbgvecr4148" path="res://Scenes/menu_button.tscn" id="2_5a6ek"]
+[ext_resource type="Texture2D" uid="uid://jic1r5nel66i" path="res://Assets/UI/button1.png" id="3_nsogc"]
+[ext_resource type="Texture2D" uid="uid://b8nasfygfa8v0" path="res://Assets/UI/button2.png" id="4_0pswh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_54e2h"]
+resource_local_to_scene = true
+shader = ExtResource("2_3fojq")
+shader_parameter/speed = 0.8
+shader_parameter/pattern_scale = 20.0
+shader_parameter/iridescence_strength = 0.6
+shader_parameter/fade_amount = 1.0
+shader_parameter/pattern_mode = 0
+shader_parameter/saturation = 0.6
+
+[node name="Pause" type="Control" unique_id=1459197679]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l2mpd")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=834302696]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6509804)
+
+[node name="Highscore" type="NinePatchRect" parent="." unique_id=2070855362]
+material = SubResource("ShaderMaterial_54e2h")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -179.0
+offset_top = -152.75
+offset_right = 179.0
+offset_bottom = 152.75
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_nsogc")
+patch_margin_left = 30
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 30
+
+[node name="TextureRect2" type="NinePatchRect" parent="Highscore" unique_id=96165442]
+self_modulate = Color(0.74, 0.74, 0.74, 1)
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_0pswh")
+patch_margin_left = 30
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 30
+
+[node name="MarginContainer" type="MarginContainer" parent="Highscore" unique_id=944311801]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 22
+theme_override_constants/margin_top = 22
+theme_override_constants/margin_right = 22
+theme_override_constants/margin_bottom = 22
+
+[node name="Buttons" type="VBoxContainer" parent="Highscore/MarginContainer" unique_id=872525934]
+layout_mode = 2
+
+[node name="Continue" parent="Highscore/MarginContainer/Buttons" unique_id=1832128501 instance=ExtResource("2_5a6ek")]
+layout_mode = 2
+button_text = "Continue"
+
+[node name="Options" parent="Highscore/MarginContainer/Buttons" unique_id=1554606212 instance=ExtResource("2_5a6ek")]
+layout_mode = 2
+button_text = "Options"
+
+[node name="Exit" parent="Highscore/MarginContainer/Buttons" unique_id=440390343 instance=ExtResource("2_5a6ek")]
+layout_mode = 2
+button_text = "Main menu"
+
+[connection signal="pressed" from="Highscore/MarginContainer/Buttons/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Highscore/MarginContainer/Buttons/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Highscore/MarginContainer/Buttons/Exit" to="." method="_on_exit_pressed"]

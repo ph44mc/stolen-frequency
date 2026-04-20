@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bukb182e8mpnm"]
+
+[ext_resource type="PackedScene" uid="uid://g4lewnxtwpdc" path="res://Scenes/Enemies/enemy.tscn" id="1_0b676"]
+[ext_resource type="Script" uid="uid://cojwu4e7iqmbm" path="res://Scripts/enemy9.gd" id="2_1tbs2"]
+[ext_resource type="Shader" uid="uid://bkx53xci4fwyy" path="res://Assets/UI/hurt.gdshader" id="2_vua6g"]
+[ext_resource type="Texture2D" uid="uid://bwcw7jye2lwsc" path="res://Assets/Enemies/enemy9.png" id="3_1tbs2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vua6g"]
+resource_local_to_scene = true
+shader = ExtResource("2_vua6g")
+shader_parameter/flash_amount = 0.0
+shader_parameter/flash_color = Color(1, 0.7, 0, 1)
+
+[node name="Enemy" unique_id=907973487 instance=ExtResource("1_0b676")]
+script = ExtResource("2_1tbs2")
+destroy_radius = 100.0
+damage = 10
+health = 100
+
+[node name="Sprite2D" parent="." index="2" unique_id=1002597525]
+material = SubResource("ShaderMaterial_vua6g")
+texture = ExtResource("3_1tbs2")

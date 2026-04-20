@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://crrbgvecr4148"]
+
+[ext_resource type="Script" uid="uid://bfpg0v3prq3h4" path="res://Scripts/menu_button.gd" id="1_5duia"]
+[ext_resource type="Material" uid="uid://b7klavdfj1cim" path="res://Assets/UI/grad.tres" id="2_5uo3s"]
+[ext_resource type="Texture2D" uid="uid://jic1r5nel66i" path="res://Assets/UI/button1.png" id="2_w11kp"]
+[ext_resource type="Texture2D" uid="uid://b8nasfygfa8v0" path="res://Assets/UI/button2.png" id="3_5uo3s"]
+
+[node name="Button" type="Button" unique_id=1832128501]
+custom_minimum_size = Vector2(300, 85)
+offset_right = 300.0
+offset_bottom = 64.0
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/font_size = 42
+flat = true
+alignment = 0
+script = ExtResource("1_5duia")
+
+[node name="TextureRect" type="NinePatchRect" parent="." unique_id=913530396]
+material = ExtResource("2_5uo3s")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_w11kp")
+patch_margin_left = 30
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 30
+
+[node name="TextureRect2" type="NinePatchRect" parent="TextureRect" unique_id=1925163336]
+self_modulate = Color(0.74, 0.74, 0.74, 1)
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_5uo3s")
+patch_margin_left = 30
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 30
+
+[node name="Background" type="NinePatchRect" parent="." unique_id=117328328]
+modulate = Color(0, 0, 0, 0.7372549)
+self_modulate = Color(1, 1, 1, 0.24313726)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+patch_margin_left = 25
+patch_margin_top = 25
+patch_margin_right = 25
+patch_margin_bottom = 25
+
+[node name="TextureRect2" type="NinePatchRect" parent="Background" unique_id=247104188]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_5uo3s")
+patch_margin_left = 30
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 30
+
+[node name="Label" type="Label" parent="." unique_id=1344803836]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -107.5
+offset_top = -33.5
+offset_right = 107.5
+offset_bottom = 33.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 1
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.105882354)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 16
+theme_override_constants/shadow_outline_size = 40
+theme_override_font_sizes/font_size = 40
+text = "Button"
+horizontal_alignment = 1

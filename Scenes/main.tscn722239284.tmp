@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://o5ugmu5orbdi"]
+
+[ext_resource type="Script" uid="uid://b7cdxgpoyqbso" path="res://Scripts/main.gd" id="1_jjgbg"]
+[ext_resource type="PackedScene" uid="uid://djc6fw85onpag" path="res://Scenes/tile_placer.tscn" id="2_bo1nx"]
+[ext_resource type="Script" uid="uid://t7hi3ra472fu" path="res://Scripts/tile_manager.gd" id="3_8gbba"]
+
+[node name="Main" type="Node2D" unique_id=1399299103]
+script = ExtResource("1_jjgbg")
+
+[node name="TilePlacer" parent="." unique_id=1772660490 instance=ExtResource("2_bo1nx")]
+
+[node name="TileManager" type="Node2D" parent="." unique_id=431154624]
+script = ExtResource("3_8gbba")

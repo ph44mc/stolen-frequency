@@ -1,0 +1,131 @@
+[gd_scene format=3 uid="uid://bnaxvibms87sd"]
+
+[ext_resource type="Script" uid="uid://dj4e6xt8pcy5h" path="res://Scripts/tooltip.gd" id="1_617o6"]
+[ext_resource type="Texture2D" uid="uid://dogvbpgf6onku" path="res://Assets/UI/tooltip.png" id="1_jt5cv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fevyy"]
+
+[node name="Tooltip" type="Control" unique_id=766778616]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+script = ExtResource("1_617o6")
+
+[node name="Container" type="PanelContainer" parent="." unique_id=383962881]
+process_mode = 3
+z_index = 25
+custom_minimum_size = Vector2(230, 0)
+layout_mode = 0
+offset_top = -24.0
+offset_right = 309.0
+offset_bottom = 230.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_fevyy")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Container" unique_id=438763158]
+process_mode = 3
+z_index = -1
+layout_mode = 2
+texture = ExtResource("1_jt5cv")
+patch_margin_left = 72
+patch_margin_top = 80
+patch_margin_right = 148
+patch_margin_bottom = 52
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Container" unique_id=980546925]
+process_mode = 3
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_top = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Container/MarginContainer" unique_id=2018843123]
+process_mode = 3
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = -2
+
+[node name="Name" type="RichTextLabel" parent="Container/MarginContainer/VBoxContainer" unique_id=1236758985]
+unique_name_in_owner = true
+process_mode = 3
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 26
+bbcode_enabled = true
+text = "Name"
+fit_content = true
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Rareness" type="RichTextLabel" parent="Container/MarginContainer/VBoxContainer" unique_id=1051190485]
+unique_name_in_owner = true
+process_mode = 3
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 19
+bbcode_enabled = true
+text = "Rare"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="FromWorld" type="RichTextLabel" parent="Container/MarginContainer/VBoxContainer" unique_id=7020506]
+unique_name_in_owner = true
+process_mode = 3
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 19
+bbcode_enabled = true
+text = "Overworld"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Container/MarginContainer/VBoxContainer" unique_id=1279111492]
+process_mode = 3
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_top = 5
+
+[node name="MarginContainer2" type="MarginContainer" parent="Container/MarginContainer/VBoxContainer" unique_id=1592338939]
+process_mode = 3
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 37
+theme_override_constants/margin_right = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Container/MarginContainer/VBoxContainer/MarginContainer2" unique_id=386781076]
+process_mode = 3
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Desc" type="RichTextLabel" parent="Container/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer" unique_id=865982750]
+unique_name_in_owner = true
+process_mode = 3
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/line_separation = -1
+theme_override_font_sizes/normal_font_size = 21
+bbcode_enabled = true
+text = "Description and blablabladdddddd dddddd
+
+asfasf"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+visible_characters_behavior = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="Container/MarginContainer/VBoxContainer" unique_id=93869091]
+process_mode = 3
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_top = 42

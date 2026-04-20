@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dpa4dp2iku86"]
+
+[ext_resource type="Script" uid="uid://i3lulop0g4p6" path="res://Scripts/sound.gd" id="1_df3ut"]
+
+[node name="Sounds" type="Node2D" unique_id=927998650]
+process_mode = 3
+script = ExtResource("1_df3ut")
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1878560075]
+volume_db = -6.0
+bus = &"Music"
+
+[connection signal="finished" from="Music" to="." method="_on_music_finished"]

@@ -1,0 +1,356 @@
+[gd_scene format=3 uid="uid://dyedlepasf5bl"]
+
+[ext_resource type="Script" uid="uid://34j3j4dqyd1y" path="res://Scripts/choose_card.gd" id="1_4wfc1"]
+[ext_resource type="Texture2D" uid="uid://b8nasfygfa8v0" path="res://Assets/UI/button2.png" id="2_cyij4"]
+[ext_resource type="Texture2D" uid="uid://bmiu6lm21rmtp" path="res://Assets/UI/whirl.png" id="3_ys26t"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nvblv"]
+load_path = "res://.godot/imported/button2.png-77422791b2e0d18779596a1bdd5d25eb.ctex"
+
+[sub_resource type="Curve" id="Curve_vc5yr"]
+_data = [Vector2(0, 0.011235952), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.09086418, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_sbdjj"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Curve" id="Curve_ys26t"]
+_data = [Vector2(0.005376339, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.09086418, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_dvg5n"]
+offsets = PackedFloat32Array(0, 0.05, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Animation" id="Animation_ys26t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Portal/Whirl:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Portal/Whirl:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Portal/Whirl:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Shape:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_dvg5n"]
+resource_name = "rotate"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Portal/Whirl:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [6.283185307179586, 0.0, -6.283185307179586]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Portal/Whirl:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.3, 2),
+"transitions": PackedFloat32Array(-2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(2.435, 2.435), Vector2(1.53, 1.53), Vector2(2, 2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Portal/Whirl:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.0333333, 1.5294677, 2),
+"transitions": PackedFloat32Array(-2, -2, -2, -2, -2),
+"update": 0,
+"values": [Color(1, 1, 1, 0.7176471), Color(1, 1, 1, 0.5058824), Color(1, 1, 1, 0.7176471), Color(1, 1, 1, 0.5058824), Color(1, 1, 1, 0.7176471)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Shape:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.99759156, 2),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 6.985), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nvblv"]
+_data = {
+&"RESET": SubResource("Animation_ys26t"),
+&"rotate": SubResource("Animation_dvg5n")
+}
+
+[sub_resource type="Animation" id="Animation_nvblv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Portal:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Portal:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, 3)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Shape:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_vc5yr"]
+resource_name = "portal_in"
+length = 1.37
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Portal:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.10000001, 0.16666667, 0.7),
+"transitions": PackedFloat32Array(1, 0.48296815, -2),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.49019608), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Portal:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.43333334, 0.6333333, 0.93333334, 1.1333333, 1.3666667),
+"transitions": PackedFloat32Array(-2, -2, -2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(3, 3), Vector2(2.85, 2.85), Vector2(3, 3), Vector2(2.94, 2.94), Vector2(3, 3)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Shape:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.23333333),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.4, 1.4), Vector2(1.3, 1.3)]
+}
+
+[sub_resource type="Animation" id="Animation_sbdjj"]
+resource_name = "portal_out"
+length = 1.37
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Portal:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.53333336),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Portal:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.23333333),
+"transitions": PackedFloat32Array(-2, -2, 0.17075527),
+"update": 0,
+"values": [Vector2(3, 3), Vector2(3.135, 3.135), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Shape:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.2),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(1.3, 1.3), Vector2(1.4, 1.4), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sbdjj"]
+_data = {
+&"RESET": SubResource("Animation_nvblv"),
+&"portal_in": SubResource("Animation_vc5yr"),
+&"portal_out": SubResource("Animation_sbdjj")
+}
+
+[node name="ChooseCard" type="Node2D" unique_id=1098104341]
+script = ExtResource("1_4wfc1")
+
+[node name="Portal" type="Node2D" parent="." unique_id=2132490428]
+scale = Vector2(3, 3)
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="Portal" unique_id=1419492387]
+emitting = false
+amount = 100
+texture = SubResource("CompressedTexture2D_nvblv")
+speed_scale = 0.7
+emission_shape = 6
+emission_ring_inner_radius = 0.0
+emission_ring_radius = 200.0
+direction = Vector2(0, 0)
+gravity = Vector2(0, 0)
+angular_velocity_max = 697.83
+orbit_velocity_min = 1.0
+orbit_velocity_max = 4.0
+radial_accel_min = 37.96
+radial_accel_max = 37.96
+angle_max = 54.3
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_vc5yr")
+color = Color(0, 0, 0, 1)
+color_initial_ramp = SubResource("Gradient_sbdjj")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Portal" unique_id=2040946972]
+emitting = false
+amount = 100
+texture = ExtResource("2_cyij4")
+speed_scale = 0.2
+emission_shape = 6
+emission_ring_inner_radius = 0.0
+emission_ring_radius = 300.0
+direction = Vector2(0, 0)
+gravity = Vector2(0, 0)
+angular_velocity_max = 5.0
+orbit_velocity_min = 1.0
+orbit_velocity_max = 5.0
+radial_accel_max = 100.0
+angle_max = 54.3
+scale_amount_min = 0.0
+scale_amount_curve = SubResource("Curve_ys26t")
+color_initial_ramp = SubResource("Gradient_dvg5n")
+
+[node name="Whirl" type="Sprite2D" parent="Portal" unique_id=1914317429]
+texture = ExtResource("3_ys26t")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Portal" unique_id=642780345]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_nvblv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=443970899]
+libraries/ = SubResource("AnimationLibrary_sbdjj")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=625003389]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(1, 1, 1, 0.42745098)
+offset_left = -208.0
+offset_top = -290.0
+offset_right = 223.0
+offset_bottom = 377.0
+texture = ExtResource("2_cyij4")
+
+[node name="Button" type="Button" parent="." unique_id=409230452]
+offset_left = -160.0
+offset_top = -185.0
+offset_right = 162.0
+offset_bottom = 291.0
+focus_mode = 0
+flat = true
+
+[node name="Name" type="Label" parent="." unique_id=346429869]
+offset_left = -124.0
+offset_top = 176.0
+offset_right = 120.0
+offset_bottom = 225.0
+theme_override_font_sizes/font_size = 35
+text = "NAMEE"
+horizontal_alignment = 1
+
+[node name="FromWorld" type="Label" parent="." unique_id=1960275228]
+offset_left = -120.0
+offset_top = 224.0
+offset_right = 118.0
+offset_bottom = 247.0
+theme_override_font_sizes/font_size = 15
+text = "Overworld"
+horizontal_alignment = 1
+
+[node name="Shape" type="Node2D" parent="." unique_id=701063383]
+
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

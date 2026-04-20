@@ -1,0 +1,319 @@
+[gd_scene format=3 uid="uid://b6l8qtrc805o3"]
+
+[ext_resource type="Script" uid="uid://wcrropba0o8x" path="res://Scripts/main_menu.gd" id="1_n45e2"]
+[ext_resource type="Texture2D" uid="uid://d34piklbokwyt" path="res://Assets/UI/backg.png" id="2_yhxw7"]
+[ext_resource type="PackedScene" uid="uid://crrbgvecr4148" path="res://Scenes/menu_button.tscn" id="3_1ehe0"]
+[ext_resource type="Shader" uid="uid://bxvv7dkm6ar6m" path="res://Assets/UI/button.gdshader" id="4_opfnp"]
+[ext_resource type="Texture2D" uid="uid://jic1r5nel66i" path="res://Assets/UI/button1.png" id="5_cp0ys"]
+[ext_resource type="PackedScene" uid="uid://7nscamcebplj" path="res://Scenes/options.tscn" id="6_opfnp"]
+[ext_resource type="Texture2D" uid="uid://b8nasfygfa8v0" path="res://Assets/UI/button2.png" id="6_yhxw7"]
+[ext_resource type="Texture2D" uid="uid://cdryk4lnsyq61" path="res://Assets/UI/logo.png" id="7_trj04"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_trj04"]
+resource_local_to_scene = true
+shader = ExtResource("4_opfnp")
+shader_parameter/speed = 0.8
+shader_parameter/pattern_scale = 20.0
+shader_parameter/iridescence_strength = 0.6
+shader_parameter/fade_amount = 1.0
+shader_parameter/pattern_mode = 0
+shader_parameter/saturation = 0.6
+
+[sub_resource type="Animation" id="Animation_yhxw7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StartLayer/Highscore:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(56, 355.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StartLayer/LOGO:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StartLayer/LOGO:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StartLayer/Buttons:size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(300, 271)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("StartLayer/Buttons:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(810, 511.5)]
+}
+
+[sub_resource type="Animation" id="Animation_trj04"]
+resource_name = "start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StartLayer/Highscore:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6333333),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(-400, 355.5), Vector2(70, 355.5), Vector2(56, 355.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StartLayer/LOGO:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.23333333, 0.7),
+"transitions": PackedFloat32Array(2, -2, -2),
+"update": 0,
+"values": [-0.380481776934764, 0.08726646259971647, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StartLayer/LOGO:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6333333),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(1.01, 0.045), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StartLayer/Buttons:size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.6333333),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(300, 700), Vector2(300, 271)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("StartLayer/Buttons:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6666667),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(810, 548.45), Vector2(810, 495.065), Vector2(810, 511.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_16hvj"]
+_data = {
+&"RESET": SubResource("Animation_yhxw7"),
+&"start": SubResource("Animation_trj04")
+}
+
+[node name="MainMenu" type="Node2D" unique_id=1466382251]
+script = ExtResource("1_n45e2")
+
+[node name="StartLayer" type="CanvasLayer" parent="." unique_id=1085375052]
+
+[node name="Back" type="TextureRect" parent="StartLayer" unique_id=1021833343]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_yhxw7")
+
+[node name="Buttons" type="VBoxContainer" parent="StartLayer" unique_id=344093930]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -28.5
+offset_right = 150.0
+offset_bottom = 242.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Start" parent="StartLayer/Buttons" unique_id=297379762 instance=ExtResource("3_1ehe0")]
+layout_mode = 2
+button_text = "Start"
+
+[node name="MarginContainer2" type="MarginContainer" parent="StartLayer/Buttons" unique_id=348576009]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Cutscene" parent="StartLayer/Buttons" unique_id=1832128501 instance=ExtResource("3_1ehe0")]
+visible = false
+layout_mode = 2
+button_text = "Watch cutscene"
+
+[node name="MarginContainer3" type="MarginContainer" parent="StartLayer/Buttons" unique_id=1272492201]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Options" parent="StartLayer/Buttons" unique_id=619364639 instance=ExtResource("3_1ehe0")]
+layout_mode = 2
+button_text = "Options"
+
+[node name="MarginContainer" type="MarginContainer" parent="StartLayer/Buttons" unique_id=1660548525]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Exit" parent="StartLayer/Buttons" unique_id=132668961 instance=ExtResource("3_1ehe0")]
+layout_mode = 2
+button_text = "Exit"
+
+[node name="Highscore" type="NinePatchRect" parent="StartLayer" unique_id=1907903511]
+visible = false
+material = SubResource("ShaderMaterial_trj04")
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 56.0
+offset_top = -184.5
+offset_right = 378.0
+offset_bottom = 184.5
+grow_vertical = 2
+texture = ExtResource("5_cp0ys")
+patch_margin_left = 30
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 30
+
+[node name="TextureRect2" type="NinePatchRect" parent="StartLayer/Highscore" unique_id=1696175063]
+self_modulate = Color(0.74, 0.74, 0.74, 1)
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_yhxw7")
+patch_margin_left = 30
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 30
+
+[node name="MarginContainer" type="MarginContainer" parent="StartLayer/Highscore" unique_id=1263923210]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 22
+theme_override_constants/margin_top = 22
+theme_override_constants/margin_right = 22
+theme_override_constants/margin_bottom = 22
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StartLayer/Highscore/MarginContainer" unique_id=66507795]
+layout_mode = 2
+
+[node name="Highscore" type="Label" parent="StartLayer/Highscore/MarginContainer/VBoxContainer" unique_id=69326783]
+layout_mode = 2
+mouse_filter = 1
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.105882354)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 16
+theme_override_constants/shadow_outline_size = 40
+theme_override_font_sizes/font_size = 40
+text = "Highscore"
+horizontal_alignment = 1
+
+[node name="Wave" type="Label" parent="StartLayer/Highscore/MarginContainer/VBoxContainer" unique_id=1402231692]
+layout_mode = 2
+mouse_filter = 1
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.105882354)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 16
+theme_override_constants/shadow_outline_size = 40
+theme_override_font_sizes/font_size = 40
+text = "Wave:"
+
+[node name="Exp" type="Label" parent="StartLayer/Highscore/MarginContainer/VBoxContainer" unique_id=1941320090]
+layout_mode = 2
+mouse_filter = 1
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.105882354)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 16
+theme_override_constants/shadow_outline_size = 40
+theme_override_font_sizes/font_size = 40
+
+[node name="LOGO" type="TextureRect" parent="StartLayer" unique_id=1190657434]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -381.5
+offset_top = 28.0
+offset_right = 381.5
+offset_bottom = 357.0
+grow_horizontal = 2
+pivot_offset = Vector2(379.5, 179)
+texture = ExtResource("7_trj04")
+
+[node name="Label" type="Label" parent="StartLayer/LOGO" unique_id=1489500702]
+layout_mode = 0
+offset_left = 396.5
+offset_top = 288.0
+offset_right = 683.5
+offset_bottom = 328.0
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 21
+text = "also play dicemaster"
+
+[node name="OptionsLayer" type="CanvasLayer" parent="." unique_id=1062454375]
+visible = false
+
+[node name="Options" parent="OptionsLayer" unique_id=1511223899 instance=ExtResource("6_opfnp")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2059014855]
+libraries/ = SubResource("AnimationLibrary_16hvj")
+
+[connection signal="pressed" from="StartLayer/Buttons/Cutscene" to="." method="_on_cutscene_pressed"]

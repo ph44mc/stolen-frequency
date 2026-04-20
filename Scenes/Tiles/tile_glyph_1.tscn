@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://d2h5xgebopiyu"]
+
+[ext_resource type="PackedScene" uid="uid://bf371sgll1q0n" path="res://Scenes/Tiles/tile.tscn" id="1_l3psr"]
+[ext_resource type="Script" uid="uid://08veyubfp1ih" path="res://Scripts/Tiles/tile_glyph_1.gd" id="2_ct777"]
+[ext_resource type="Shader" uid="uid://bkx53xci4fwyy" path="res://Assets/UI/hurt.gdshader" id="2_nitfm"]
+[ext_resource type="Texture2D" uid="uid://g0c8bxaev4ap" path="res://Assets/Tiles/tile_glyph_1.png" id="4_udmi4"]
+[ext_resource type="Texture2D" uid="uid://qa1wh6l6jpxp" path="res://Assets/Tiles/fake_player.png" id="5_ct777"]
+[ext_resource type="Texture2D" uid="uid://c2c8hewxamiet" path="res://Assets/Tiles/fake_player_off.png" id="6_ct777"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ct777"]
+resource_local_to_scene = true
+shader = ExtResource("2_nitfm")
+shader_parameter/flash_amount = 0.0
+shader_parameter/flash_color = Color(1, 0.68333334, 0, 1)
+
+[sub_resource type="Animation" id="Animation_qfmtl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TileImage/FakeCopy:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_63p4k"]
+resource_name = "attack"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TileImage/FakeCopy:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.19923463, 0.23333335, 0.3),
+"transitions": PackedFloat32Array(-2, -2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.755), Vector2(1, 0.755), Vector2(1.05, 1.05), Vector2(1, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3ppsy"]
+_data = {
+&"RESET": SubResource("Animation_qfmtl"),
+&"attack": SubResource("Animation_63p4k")
+}
+
+[node name="Tile" unique_id=1717375347 instance=ExtResource("1_l3psr")]
+script = ExtResource("2_ct777")
+
+[node name="Sprite2D" parent="TileImage" parent_id_path=PackedInt32Array(1914940449) index="0" unique_id=175761121]
+material = SubResource("ShaderMaterial_ct777")
+texture = ExtResource("4_udmi4")
+
+[node name="FakeCopy" type="Sprite2D" parent="TileImage" parent_id_path=PackedInt32Array(1914940449) index="2" unique_id=1789940150]
+visible = false
+z_index = 11
+material = SubResource("ShaderMaterial_ct777")
+position = Vector2(1.4901161e-08, 5.000001)
+texture = ExtResource("5_ct777")
+offset = Vector2(-1, -32)
+
+[node name="Fire" type="Sprite2D" parent="TileImage" parent_id_path=PackedInt32Array(1914940449) index="3" unique_id=589571167]
+z_index = 11
+material = SubResource("ShaderMaterial_ct777")
+position = Vector2(0, -5)
+texture = ExtResource("6_ct777")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2" unique_id=1610195698]
+libraries/ = SubResource("AnimationLibrary_3ppsy")

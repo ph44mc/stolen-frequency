@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://ctwsjpsj8req8"]
+
+[ext_resource type="Script" uid="uid://bg64a10hxejlg" path="res://Scripts/exp.gd" id="1_frmsu"]
+[ext_resource type="Texture2D" uid="uid://dis2wj53jitqa" path="res://Assets/UI/exp.png" id="2_hejcn"]
+
+[node name="Exp" type="Node2D" unique_id=854155098]
+script = ExtResource("1_frmsu")
+
+[node name="Button1" type="Sprite2D" parent="." unique_id=883687928]
+modulate = Color(1, 1, 0.69, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_hejcn")

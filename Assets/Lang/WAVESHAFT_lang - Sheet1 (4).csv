@@ -1,0 +1,41 @@
+DEFAULT,en,ru
+tile_overworld_1,Grass,Трава
+tile_overworld_2,EXP GENERATOR,Завод экспы
+tile_spore_1,Peashooter,Горохострел
+tile_hell_1,Magma,Магма
+tile_hell_2,Lavalavalava,Лавовый поток
+tile_ocean_1,Puddle,Лужа
+tile_ocean_2,Loch Ness,Лох-Несс
+tile_rusty_1,Spike Trap,Шипастая ловушка
+tile_prism_1,Amethyst,Аметист
+tile_prism_2,Big stone,Камень
+tile_glyph_1,Doppelgänger,Доппельгангер
+tile_glyph_2,Portal 2,Портал
+,,
+choose1,Choose one,Выбери один
+choose2,chunk from world...,кусочек из мира...
+reroll,Reroll signal,Реролл сигнала
+,,
+tile_overworld_1_desc,More exp from killed units in area,Больше опыта за убийства в радиусе
+tile_overworld_2_desc,On wave end: spawn 5 exp,В конце волны: создает 5 опыта
+tile_spore_1_desc,Shoots enemies from any distance,Атакует врагов с любого расстояния
+tile_hell_1_desc,Damages standing units for 1 damage/s,При наступании: наносит 1 урон. Наносит стоящим 1 урона в секунду
+tile_hell_2_desc,On step: 50% to summon lava stream that deals 10 damage to all standing units,"При наступании: 50% шанс вызвать лавовый поток, наносящий 10 урона всем стоящим врагам"
+tile_ocean_1_desc,Slows nearby enemies,Замедляет ближайших врагов
+tile_ocean_2_desc,On step: 30% to kill stepped unit,При наступании: 30% шанс мгновенно убить наступившего
+tile_rusty_1_desc,On step: deals 3 damage to stepped unit and stuns for 1s,При наступании: наносит 3 урона и оглушает на 1 сек
+tile_prism_1_desc,On step: Deals 1 damage,При наступании: наносит 1 урон
+tile_prism_2_desc,Reveals stealth enemies in area,Раскрывает скрытных врагов в радиусе
+tile_glyph_1_desc,On wave end: creates 3hp player copy that attract enemies,"В конце волны: создаёт копию игрока с 3 HP, привлекающую врагов"
+tile_glyph_2_desc,On step: teleports to linked portal,При наступании: телепортирует к связанному порталу
+,,
+frame_1,"Long ago, a device was created. Not a weapon. Not a machine. A tool.",Давным давно было создано устройство. Не оружие. Не машина. Инструмент. 
+frame_2,"With it, you could send a signal.",С его помощью можно было посылать сигнал. 
+frame_3,Merge frequencies. Open portals between worlds.,Соединять частоты. Открывать порталы между мирами.
+frame_4,And one day...,И однажды...
+frame_5,...,...
+frame_6,... someone stole a piece of another world.,... кто-то украл кусок чужого мира.
+frame_7,Just because.,Просто так. 
+frame_8,Just because. For themselves.,Просто так. Для себя.
+frame_9,But the signal does not fade. Frequencies remember. The worlds felt the theft. And they... are angry.,Но сигнал не исчезает. Частоты помнят. Миры почувствовали кражу. И они... злятся.
+frame_10,Now they have come. To take back what is theirs. To destroy the thief.,Теперь они пришли. Забрать своё. Уничтожить вора.

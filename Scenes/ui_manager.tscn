@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://bjvll7ppo2js"]
+
+[ext_resource type="Script" uid="uid://bd0mdbu5qi64e" path="res://Scripts/ui_manager.gd" id="1_blom3"]
+[ext_resource type="PackedScene" uid="uid://c3f22xsng0bm4" path="res://Scenes/transition.tscn" id="1_nphyr"]
+[ext_resource type="PackedScene" uid="uid://ktm5ly8xxlq6" path="res://Scenes/game_over.tscn" id="3_k436y"]
+[ext_resource type="PackedScene" uid="uid://bnaxvibms87sd" path="res://Scenes/tooltip.tscn" id="3_toaf1"]
+[ext_resource type="PackedScene" uid="uid://deen7785qfjtf" path="res://Scenes/pause.tscn" id="4_i37jq"]
+[ext_resource type="PackedScene" uid="uid://7nscamcebplj" path="res://Scenes/options.tscn" id="4_laqw3"]
+
+[node name="UIManager" type="Node" unique_id=1444806040]
+process_mode = 3
+script = ExtResource("1_blom3")
+
+[node name="OptionsLayer" type="CanvasLayer" parent="." unique_id=565716494]
+process_mode = 3
+layer = 98
+visible = false
+
+[node name="Options" parent="OptionsLayer" unique_id=1511223899 instance=ExtResource("4_laqw3")]
+
+[node name="Game" type="CanvasLayer" parent="." unique_id=164149835]
+process_mode = 3
+layer = 99
+
+[node name="GameOver" parent="Game" unique_id=967215900 instance=ExtResource("3_k436y")]
+visible = false
+
+[node name="Tooltip" parent="Game" unique_id=766778616 instance=ExtResource("3_toaf1")]
+visible = false
+
+[node name="Transition" parent="Game" unique_id=821373237 instance=ExtResource("1_nphyr")]
+metadata/_edit_use_anchors_ = true
+
+[node name="Pause" type="CanvasLayer" parent="." unique_id=1797249795]
+process_mode = 3
+layer = 100
+visible = false
+
+[node name="Pause" parent="Pause" unique_id=1459197679 instance=ExtResource("4_i37jq")]
+process_mode = 3

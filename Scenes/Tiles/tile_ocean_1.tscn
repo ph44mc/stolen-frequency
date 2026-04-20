@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://b5e8qxm4w4dvh"]
+
+[ext_resource type="PackedScene" uid="uid://bf371sgll1q0n" path="res://Scenes/Tiles/tile.tscn" id="1_wlwi1"]
+[ext_resource type="Script" uid="uid://c1mf0p6fv2cht" path="res://Scripts/Tiles/tile_ocean_1.gd" id="2_fkx42"]
+[ext_resource type="Shader" uid="uid://bkx53xci4fwyy" path="res://Assets/UI/hurt.gdshader" id="3_n6mb4"]
+[ext_resource type="Texture2D" uid="uid://cab8jtou68ucl" path="res://Assets/Tiles/tile_ocean_1.png" id="4_fkx42"]
+[ext_resource type="Texture2D" uid="uid://dfoemc7shgehg" path="res://Assets/UI/area.png" id="4_t5jew"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fkx42"]
+resource_local_to_scene = true
+shader = ExtResource("3_n6mb4")
+shader_parameter/flash_amount = 0.0
+shader_parameter/flash_color = Color(1, 0.68333334, 0, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oiyjx"]
+radius = 192.0
+
+[node name="Tile" unique_id=1717375347 instance=ExtResource("1_wlwi1")]
+script = ExtResource("2_fkx42")
+
+[node name="Sprite2D" parent="TileImage" parent_id_path=PackedInt32Array(1914940449) index="0" unique_id=175761121]
+material = SubResource("ShaderMaterial_fkx42")
+texture = ExtResource("4_fkx42")
+
+[node name="Area2D" type="Area2D" parent="." index="2" unique_id=1061005083]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0" unique_id=2127914960]
+scale = Vector2(1, 0.75)
+shape = SubResource("CircleShape2D_oiyjx")
+
+[node name="Area" type="Sprite2D" parent="." index="3" unique_id=589189527]
+visible = false
+scale = Vector2(3.06, 2.295)
+texture = ExtResource("4_t5jew")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

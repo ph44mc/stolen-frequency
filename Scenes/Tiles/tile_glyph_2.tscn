@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://1v0way1wo6sl"]
+
+[ext_resource type="PackedScene" uid="uid://bf371sgll1q0n" path="res://Scenes/Tiles/tile.tscn" id="1_hyq7p"]
+[ext_resource type="Script" uid="uid://dk5633e7yngoa" path="res://Scripts/Tiles/tile_glyph_2.gd" id="2_3jrrp"]
+[ext_resource type="Shader" uid="uid://bkx53xci4fwyy" path="res://Assets/UI/hurt.gdshader" id="3_volcq"]
+[ext_resource type="Texture2D" uid="uid://0gxfq204pkli" path="res://Assets/Tiles/tile_glyph_2.png" id="4_hyq7p"]
+[ext_resource type="Texture2D" uid="uid://x7o5mddy1j1c" path="res://Assets/Tiles/glyph_portal_on.png" id="5_51ocd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3jrrp"]
+resource_local_to_scene = true
+shader = ExtResource("3_volcq")
+shader_parameter/flash_amount = 0.0
+shader_parameter/flash_color = Color(1, 0.68333334, 0, 1)
+
+[node name="Tile" unique_id=1717375347 instance=ExtResource("1_hyq7p")]
+script = ExtResource("2_3jrrp")
+
+[node name="Sprite2D" parent="TileImage" parent_id_path=PackedInt32Array(1914940449) index="0" unique_id=175761121]
+material = SubResource("ShaderMaterial_3jrrp")
+texture = ExtResource("4_hyq7p")
+
+[node name="Fire" type="Sprite2D" parent="TileImage" parent_id_path=PackedInt32Array(1914940449) index="2" unique_id=589571167]
+visible = false
+z_index = 11
+material = SubResource("ShaderMaterial_3jrrp")
+texture = ExtResource("5_51ocd")
+
+[node name="Timer" type="Timer" parent="." index="2" unique_id=1681601706]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
