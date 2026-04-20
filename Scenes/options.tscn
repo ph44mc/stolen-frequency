@@ -105,6 +105,15 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4tmxy")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1192718171]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6509804)
+
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1292006719]
 process_mode = 3
 layout_mode = 1
@@ -302,7 +311,6 @@ popup/item_1/id = 1
 
 [node name="RollAnimation" type="HSplitContainer" parent="HBoxContainer2/TabContainer/Game/MarginContainer/VBoxContainer" unique_id=1845496907]
 process_mode = 3
-visible = false
 layout_mode = 2
 theme_override_constants/separation = 25
 split_offsets = PackedInt32Array(282)
@@ -320,7 +328,7 @@ theme_override_constants/shadow_offset_y = 0
 theme_override_constants/outline_size = 20
 theme_override_constants/shadow_outline_size = 40
 theme_override_font_sizes/font_size = 37
-text = "Roll animation"
+text = "Show enemy health"
 
 [node name="OnOff" parent="HBoxContainer2/TabContainer/Game/MarginContainer/VBoxContainer/RollAnimation" unique_id=1015646297 instance=ExtResource("6_663nc")]
 process_mode = 3

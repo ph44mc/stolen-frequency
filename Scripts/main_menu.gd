@@ -7,7 +7,7 @@ extends Node2D
 @onready var options: Control = $OptionsLayer/Options
 
 @onready var wave: Label = $StartLayer/Highscore/MarginContainer/VBoxContainer/Wave
-@onready var exp: Label = $StartLayer/Highscore/MarginContainer/VBoxContainer/Exp
+@onready var exp_text: Label = $StartLayer/Highscore/MarginContainer/VBoxContainer/Exp
 
 func _ready() -> void:
 	Config._load()
@@ -15,6 +15,9 @@ func _ready() -> void:
 		$StartLayer/Buttons/Cutscene.visible = true
 		$StartLayer/Buttons/MarginContainer3.visible = true
 		$StartLayer/Highscore.visible = true
+		
+	if G.is_web_build:
+		$StartLayer/Buttons/Exit.visible = false
 		
 	options.close_menu.connect(change_ui.bind(0))
 	
@@ -28,7 +31,7 @@ func _ready() -> void:
 	$AnimationPlayer.play("start")
 	
 	wave.text = "Wave: " + str(Config.records.get("max_wave","-"))
-	exp.text = "Exp: " + str(Config.records.get("max_score","-"))
+	exp_text.text = "Exp: " + str(Config.records.get("max_score","-"))
 	
 var current_ui: int = 0
 	
@@ -57,6 +60,7 @@ func _on_play_pressed() -> void:
 	if Config.watched_cutscene:
 		get_tree().change_scene_to_file("res://Scenes/main.tscn")
 	else:
+		G.in_cutscene = true
 		get_tree().change_scene_to_file("res://Scenes/cutscene.tscn")
 	
 func _on_options_pressed() -> void:
@@ -69,4 +73,5 @@ func _on_exit_pressed() -> void:
 
 func _on_cutscene_pressed() -> void:
 	await UIManager.show_transition()
+	G.in_cutscene = true
 	get_tree().change_scene_to_file("res://Scenes/cutscene.tscn")

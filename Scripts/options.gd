@@ -48,6 +48,9 @@ var is_updating_ui = false
 	
 # ===== INIT =====
 func _ready() -> void:
+	if G.is_web_build:
+		#$HBoxContainer/DeleteSave.visible = false
+		$HBoxContainer2/Tabs/Button2.visible = false
 	get_tree().current_scene.ready.connect(_on_scene_ready)
 
 func _on_scene_ready():
@@ -90,7 +93,7 @@ func update_ui():
 	is_updating_ui = true
 
 	language_option.select(Config.data["language"])
-	roll_animation_toggle.switch(Config.data["roll_anim"])
+	roll_animation_toggle.switch(Config.data["show_enemy_health"])
 	
 	resolution_option.select(Config.data["resolution"])
 	fullscreen_toggle.switch(Config.data["fullscreen"])
@@ -146,11 +149,11 @@ func apply_all_once():
 func _on_language_changed(index):
 	if is_updating_ui: return
 	Config.data["language"] = language_option.get_item_id(index)
-	TranslationServer.set_locale(["en","ru"][Config.data["language"]])
+	update_reset_button()
 	
 func _on_roll_anim_toggled(on):
 	if is_updating_ui: return
-	Config.data["roll_anim"] = on
+	Config.data["show_enemy_health"] = on
 	update_reset_button()
 
 func _on_fullscreen_toggled(on):
@@ -210,11 +213,12 @@ func _on_back_pressed():
 	close_menu.emit()
 
 func _on_reset_pressed():
-	Config._reset()        # возвращаем все к дефолту
+	Config._reset()
 	update_ui()
 	apply_all_once()
 	
 func _on_delete_save_pressed():
 	Config.delete_save()
 	Config._save()
+	await UIManager.show_transition()
 	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")

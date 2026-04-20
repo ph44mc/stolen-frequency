@@ -2,10 +2,17 @@ extends Node
 
 var main: Main
 
+var is_web_build: bool = true
+var in_cutscene: bool = false
+
 var shapes_texts = [
 	"""
 	a a a
 	. a .
+	""",
+	
+	"""
+	a a
 	""",
 	
 	"""

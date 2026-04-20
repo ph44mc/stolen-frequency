@@ -94,7 +94,7 @@ button_text = "Options"
 
 [node name="Exit" parent="Highscore/MarginContainer/Buttons" unique_id=440390343 instance=ExtResource("2_5a6ek")]
 layout_mode = 2
-button_text = "Main menu"
+button_text = "Give up"
 
 [connection signal="pressed" from="Highscore/MarginContainer/Buttons/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="Highscore/MarginContainer/Buttons/Options" to="." method="_on_options_pressed"]

@@ -13,7 +13,7 @@ func _ready() -> void:
 	await UIManager.hide_transition()
 
 func _on_button_pressed() -> void:
-	if frame>10:
+	if frame>9:
 		if Config.watched_cutscene:
 			await UIManager.show_transition()
 			get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
@@ -27,6 +27,7 @@ func _on_button_pressed() -> void:
 	$CanvasLayer/Frame.texture = load("res://Assets/UI/frame" + str(frame) + ".png")
 	
 	full_text = tr("frame_" + str(frame))
+	prints(full_text,Config.data.get("language"),TranslationServer.get_locale())
 	show_text_with_tween(full_text)
 	
 	frame += 1

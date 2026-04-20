@@ -27,6 +27,7 @@ signal wave_end
 signal respawn_anim_signal
 
 func _ready() -> void:
+	G.in_cutscene = false
 	get_tree().current_scene.ready.connect(_on_scene_ready)
 	
 func _on_scene_ready():
@@ -75,6 +76,7 @@ func end_wave():
 			
 		if wave_level == 50:
 			Config.add_won_times(1)
+			player.icon.texture = load("res://Assets/UI/player_win.png")
 			
 		await get_tree().create_timer(reward_delay,false).timeout
 		

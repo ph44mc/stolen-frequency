@@ -8,8 +8,12 @@ func _ready() -> void:
 func _on_scene_ready():
 	UIManager.options.close_menu.connect(_on_options_closed)
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel"):
+func _input(event: InputEvent) -> void:		
+	if event.is_action_pressed("ui_cancel") or event.is_action_pressed("ui_focus_next"):
+		if G.in_cutscene:
+			await UIManager.show_transition()
+			get_tree().change_scene_to_file("res://Scenes/main.tscn")
+			return
 		if is_paused:
 			unpause()
 		else:

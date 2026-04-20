@@ -33,6 +33,7 @@ signal died(enemy)
 
 
 func _ready():
+	$Sprite2D/HP.text = str(health)
 	$CollisionShape2D.disabled = false
 	if start_texture:
 		sprite.texture = start_texture
@@ -162,6 +163,8 @@ func take_damage(dmg: int):
 	Sounds.play_sound_at(global_position,["hurt","hurt2"].pick_random(),0,"SFX",randf_range(0.0,0.4))
 	
 	health -= dmg
+	$Sprite2D/HP.visible = Config.data.get("show_enemy_health")
+	$Sprite2D/HP.text = str(health)
 
 func check_for_death():
 	if health <= 0:

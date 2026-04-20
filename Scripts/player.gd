@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name Player
 
+@onready var icon: Sprite2D = $Icon
+
 @onready var tile_placer: TilePlacer = $TilePlacer
 @onready var choose: Node2D = $Choose
 @onready var health_bar: TextureProgressBar = $CanvasLayer/HealthBar
@@ -25,7 +27,7 @@ func _ready() -> void:
 	health = max_health
 	animation_player.play("idle")
 	
-	if Config.won > 0:
+	if Config.records.get("won") > 0:
 		$Icon.texture = load("res://Assets/UI/player_win.png")
 	
 	await get_tree().create_timer(0.6, false).timeout

@@ -13,8 +13,8 @@ var watched_cutscene: bool = false
 # ===== ДЕФОЛТНЫЕ НАСТРОЙКИ =====
 func _default_settings() -> Dictionary:
 	return {
-		"language": 1,
-		"roll_anim": true,
+		"language": 0,
+		"show_enemy_health": false,
 		
 		"resolution": 3,
 		"fullscreen": false,
@@ -34,7 +34,7 @@ func _load():
 		return
 	
 	data["language"] = cfg.get_value("game", "language", 0)
-	data["roll_anim"] = cfg.get_value("game", "roll_anim", true)
+	data["show_enemy_health"] = cfg.get_value("game", "show_enemy_health", true)
 	data["resolution"] = cfg.get_value("video", "resolution", 3)
 	data["fullscreen"] = cfg.get_value("video", "fullscreen", false)
 	
@@ -52,12 +52,14 @@ func _load():
 	
 	watched_cutscene = cfg.get_value("cutscene", "watched_cutscene", 0)
 	
+	TranslationServer.set_locale(["en","ru"][data["language"]])
+	
 # ===== СОХРАНЕНИЕ =====
 func _save():
 	var cfg = ConfigFile.new()
 	
 	cfg.set_value("game", "language", data["language"])
-	cfg.set_value("game", "roll_anim", data["roll_anim"])
+	cfg.set_value("game", "show_enemy_health", data["show_enemy_health"])
 	cfg.set_value("video", "resolution", data["resolution"])
 	cfg.set_value("video", "fullscreen", data["fullscreen"])
 	
@@ -73,6 +75,7 @@ func _save():
 	cfg.set_value("cutscene", "watched_cutscene", watched_cutscene)
 		
 	cfg.save("user://GameConfig.cfg")
+	
 	
 # ===== RESET =====
 func _reset():
